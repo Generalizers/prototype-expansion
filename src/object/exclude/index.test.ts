@@ -1,7 +1,5 @@
 import './index';
 
 test('exclude', () => {
-  const x = { a: '6' };
-
-  expect('2').toBe('2');
+  expect(Object.exclude({ a: 5, b: 10 }, 'a')).toStrictEqual({ b: 10 });
 });

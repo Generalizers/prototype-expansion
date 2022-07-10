@@ -28,6 +28,6 @@
       "assets/*": ["./assets/*"]
     }
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.test.ts"]
+  "include": ["src", "src/**/*.ts"],
+  "exclude": []
 }
