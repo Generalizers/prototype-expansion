@@ -1,26 +1,9 @@
 const path = require('path');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 
-const extensions = [
-  '.mjs',
-  '.js',
-  '.tsx',
-  '.ts',
-  '.png',
-  '.jpg',
-  '.jpeg',
-  '.css',
-  '.scss',
-];
+const extensions = ['.mjs', '.js', '.ts'];
 
 module.exports = {
-  devServer: {
-    historyApiFallback: true,
-  },
-  output: {
-    publicPath: '/',
-    clean: true,
-  },
   module: {
     rules: [
       {

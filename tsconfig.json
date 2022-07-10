@@ -14,7 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": false,
-    "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "lib",
     "baseUrl": "src",
@@ -29,6 +28,6 @@
       "assets/*": ["./assets/*"]
     }
   },
-  "include": ["src"],
-  "exclude": []
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
 }

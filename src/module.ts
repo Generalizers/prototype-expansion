@@ -1,3 +1,2 @@
-type LIB = 'LIB';
-
-export { LIB };
+export * from './object';
+export * from './string';

@@ -3,6 +3,8 @@ const { merge } = require('webpack-merge');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const extensions = ['.mjs', '.js', '.ts'];
+
 module.exports = merge(
   {
     mode: 'production',
@@ -11,26 +13,41 @@ module.exports = merge(
       path: path.resolve(__dirname, '../', 'lib'),
       publicPath: '/',
       library: {
-        name: 'react-dev-template',
+        name: 'prototype-expansion',
         type: 'umd',
       },
       filename: 'module.js',
+      clean: true,
     },
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
+          test: /\.ts?$/,
           exclude: /node_modules/,
           use: [
-            { loader: 'babel-loader' },
             {
               loader: 'ts-loader',
               options: {
-                configFile: path.resolve(__dirname, '../tsconfig.lib.json'),
+                configFile: path.resolve(__dirname, '../tsconfig.json'),
               },
             },
           ],
         },
+        {
+          test: /\.m?js/,
+          resolve: {
+            fullySpecified: false,
+          },
+        },
+      ],
+    },
+    resolve: {
+      extensions,
+      plugins: [
+        new TsconfigPathsPlugin({
+          extensions,
+          configFile: path.resolve(__dirname, '../tsconfig.json'),
+        }),
       ],
     },
     plugins: [new CleanWebpackPlugin()],
