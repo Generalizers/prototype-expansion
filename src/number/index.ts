@@ -15,3 +15,4 @@ export * from './avg';
 export * from './min';
 export * from './max';
 export * from './clamp';
+export * from './px';
