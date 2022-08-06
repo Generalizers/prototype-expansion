@@ -5,6 +5,10 @@ declare global {
     avg: (nums: number[]) => number;
     clamp: (nums: number[], n: number) => number;
   }
+
+  interface Number {
+    px: string;
+  }
 }
 
 export * from './avg';
