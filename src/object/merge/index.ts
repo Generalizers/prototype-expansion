@@ -58,12 +58,14 @@ export const mergeInit = <T>(objects: T[]) => {
   return {};
 };
 
-Object.merge = (...objects) => {
-  const target = mergeInit(objects);
+if (!Object.merge) {
+  Object.merge = (...objects) => {
+    const target = mergeInit(objects);
 
-  let source: any;
-  while ((source = objects.shift())) deepMergeInner(target, source);
-  return target as any;
-};
+    let source: any;
+    while ((source = objects.shift())) deepMergeInner(target, source);
+    return target as any;
+  };
+}
 
 export {};
