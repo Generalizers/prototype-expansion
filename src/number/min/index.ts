@@ -1,4 +1,4 @@
-if (Number.min) {
+if (!Number.min) {
   Number.min = (nums) => {
     let m = nums[0];
     nums.forEach((n) => {
