@@ -1,7 +1,7 @@
 if (!Array.prototype.remove) {
   Array.prototype.remove = function (element) {
-    this.splice(this.indexOf(element), 1);
-    return true;
+    const i = this.indexOf(element);
+    return i > -1 ? (this.splice(this.indexOf(element), 1), true) : false;
   };
 }
 
