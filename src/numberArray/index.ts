@@ -7,17 +7,20 @@ export class NumberArray extends Array<number> {
     return new NumberArray(...arrayLike);
   }
 
-  sum(n: number) {
-    this.forEach((v, k) => (this[k] += n));
+  sum(n: number | number[]) {
+    if (Array.isArray(n)) this.forEach((v, k) => (this[k] += n[k]));
+    else this.forEach((v, k) => (this[k] += n));
     return this;
   }
 
-  minus(n: number) {
+  minus(n: number | number[]) {
+    if (Array.isArray(n)) return this.sum(n.map((n) => -n));
     return this.sum(-n);
   }
 
-  mult(n: number) {
-    this.forEach((v, k) => (this[k] *= n));
+  mult(n: number | number[]) {
+    if (Array.isArray(n)) this.forEach((v, k) => (this[k] *= n[k]));
+    else this.forEach((v, k) => (this[k] *= n));
     return this;
   }
 }
