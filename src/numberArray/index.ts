@@ -7,6 +7,28 @@ export class NumberArray extends Array<number> {
     return new NumberArray(...arrayLike);
   }
 
+  static sum(n: number[], m: number | number[]) {
+    if (Array.isArray(m)) n.forEach((v, k) => (n[k] += m[k]));
+    else n.forEach((v, k) => (n[k] += m));
+    return n;
+  }
+
+  static minus(n: number[], m: number | number[]) {
+    if (Array.isArray(m))
+      NumberArray.sum(
+        n,
+        m.map((m) => -m),
+      );
+    else NumberArray.sum(n, -m);
+    return n;
+  }
+
+  static mult(n: number[], m: number | number[]) {
+    if (Array.isArray(m)) n.forEach((_, k) => (n[k] *= m[k]));
+    else n.forEach((v, k) => (n[k] *= m));
+    return n;
+  }
+
   static dot(N: number[], M: number[]) {
     if (N.length != M.length)
       throw new Error(
@@ -16,19 +38,17 @@ export class NumberArray extends Array<number> {
   }
 
   sum(n: number | number[]) {
-    if (Array.isArray(n)) this.forEach((v, k) => (this[k] += n[k]));
-    else this.forEach((v, k) => (this[k] += n));
+    NumberArray.sum(this, n);
     return this;
   }
 
   minus(n: number | number[]) {
-    if (Array.isArray(n)) return this.sum(n.map((n) => -n));
-    return this.sum(-n);
+    NumberArray.minus(this, n);
+    return this;
   }
 
   mult(n: number | number[]) {
-    if (Array.isArray(n)) this.forEach((v, k) => (this[k] *= n[k]));
-    else this.forEach((v, k) => (this[k] *= n));
+    NumberArray.mult(this, n);
     return this;
   }
 
