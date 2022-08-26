@@ -66,4 +66,20 @@ export class Rectangle {
   contains(r: Rectangle) {
     return Rectangle.contains(this, r);
   }
+
+  set(n: [number, number, number, number] | [number, number] | number) {
+    if (Array.isArray(n)) {
+      if (n.length == 4) {
+        this.v1.set([n[0], n[1]]);
+        this.v2.set([n[2], n[3]]);
+      } else if (n.length == 2) {
+        this.v1.set([n[0], n[1]]);
+        this.v2.set([n[0], n[1]]);
+      }
+    } else {
+      this.v1.set([n, n]);
+      this.v2.set([n, n]);
+    }
+    return this;
+  }
 }

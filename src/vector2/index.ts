@@ -41,4 +41,9 @@ export class Vector2 extends NumberArray {
   distance(v: Vector2) {
     return Vector2.distance(this, v);
   }
+
+  set(v: [number, number]) {
+    v.forEach((v, i) => (this[i] = v));
+    return this;
+  }
 }
