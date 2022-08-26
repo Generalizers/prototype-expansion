@@ -21,6 +21,13 @@ export class Vector2 extends NumberArray {
     );
   }
 
+  static seperate(v: Vector2[]) {
+    return [
+      NumberArray.from(v.map((v) => v.x)),
+      NumberArray.from(v.map((v) => v.y)),
+    ];
+  }
+
   get x() {
     return this[0];
   }

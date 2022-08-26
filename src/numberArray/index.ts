@@ -37,7 +37,9 @@ export class NumberArray extends Array<number> {
     return N.map((n, i) => n * M[i]).reduce((p, c) => p + c, 0);
   }
 
-  static isBounded(n: number[], m: number) {
+  static isBounded(n: number[], m: number | number[]) {
+    if (Array.isArray(m))
+      return m.every((m) => NumberArray.min(n) < m && NumberArray.max(n) > m);
     return NumberArray.min(n) < m && NumberArray.max(n) > m;
   }
 
@@ -68,7 +70,7 @@ export class NumberArray extends Array<number> {
     return NumberArray.dot(this, M);
   }
 
-  isBounded(n: number) {
+  isBounded(n: number | number[]) {
     return NumberArray.isBounded(this, n);
   }
 
