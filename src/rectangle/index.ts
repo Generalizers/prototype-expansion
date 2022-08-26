@@ -49,4 +49,13 @@ export class Rectangle {
   contains(r: Rectangle) {
     return Rectangle.contains(this, r);
   }
+
+  get asPosition() {
+    return [
+      Math.min(this.v1.x, this.v2.x),
+      Math.min(this.v1.y, this.v2.y),
+      this.w,
+      this.h,
+    ];
+  }
 }
