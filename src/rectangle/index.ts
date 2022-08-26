@@ -11,7 +11,7 @@ export class Rectangle {
 
   constructor(items: [[number, number], [number, number]], locked = false) {
     this.v1 = Vector2.from(items[0]);
-    this.v2 = Vector2.from(items[1]);
+    this.v2 = Vector2.from(items[1] ?? [...items[0]]);
     this.lockProportions(locked);
   }
 
