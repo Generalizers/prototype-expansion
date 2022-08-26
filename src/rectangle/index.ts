@@ -15,13 +15,23 @@ export class Rectangle {
     this.lockProportions(locked);
   }
 
+  static from(v?: Vector2, locked?: boolean): Rectangle;
   static from(v1?: Vector2, v2?: Vector2, locked?: boolean): Rectangle;
   static from(
     n?: [number, number],
     m?: [number, number],
     locked?: boolean,
   ): Rectangle;
-  static from(n?: Vector2OrNumberArr, m?: Vector2OrNumberArr, locked = false) {
+  static from(
+    n?: Vector2OrNumberArr,
+    m?: Vector2OrNumberArr | boolean,
+    locked = false,
+  ) {
+    if (typeof m == 'boolean')
+      return new Rectangle(
+        [n as unknown as [number, number], n as unknown as [number, number]],
+        m,
+      );
     return new Rectangle(
       [n as unknown as [number, number], m as unknown as [number, number]],
       locked,
