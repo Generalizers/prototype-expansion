@@ -1,3 +1,4 @@
+import '../number';
 import { Vector2 } from '../vector2';
 
 type Vector2OrNumberArr = Vector2 | [number, number];
@@ -46,10 +47,6 @@ export class Rectangle {
     return this.w * 2 + this.h * 2;
   }
 
-  contains(r: Rectangle) {
-    return Rectangle.contains(this, r);
-  }
-
   get asPosition() {
     return [
       Math.min(this.v1.x, this.v2.x),
@@ -57,5 +54,16 @@ export class Rectangle {
       this.w,
       this.h,
     ];
+  }
+
+  get asPositionString() {
+    const pos = this.asPosition;
+    return ['left', 'top', 'width', 'height']
+      .map((p, i) => `${p}:${pos[i].px}`)
+      .join(';');
+  }
+
+  contains(r: Rectangle) {
+    return Rectangle.contains(this, r);
   }
 }
