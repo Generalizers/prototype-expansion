@@ -37,6 +37,18 @@ export class NumberArray extends Array<number> {
     return N.map((n, i) => n * M[i]).reduce((p, c) => p + c, 0);
   }
 
+  static isBounded(n: number[], m: number) {
+    return NumberArray.min(n) < m && NumberArray.max(n) > m;
+  }
+
+  static min(n: number[]) {
+    return Math.min(...n);
+  }
+
+  static max(n: number[]) {
+    return Math.max(...n);
+  }
+
   sum(n: number | number[]) {
     NumberArray.sum(this, n);
     return this;
@@ -54,5 +66,17 @@ export class NumberArray extends Array<number> {
 
   dot(M: number[]) {
     return NumberArray.dot(this, M);
+  }
+
+  isBounded(n: number) {
+    return NumberArray.isBounded(this, n);
+  }
+
+  get min() {
+    return NumberArray.min(this);
+  }
+
+  get max() {
+    return NumberArray.max(this);
   }
 }
