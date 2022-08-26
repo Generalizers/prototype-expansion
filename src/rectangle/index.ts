@@ -102,7 +102,9 @@ export class Rectangle {
   }
 
   setV2(n: [number, number]) {
-    this.v2.set(n);
+    if (this.lockedProportions)
+      this.v2.set(NumberArray.sum([...this.v1], n) as [number, number]);
+    else this.v2.set(n);
     return this;
   }
 
