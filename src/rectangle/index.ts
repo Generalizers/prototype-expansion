@@ -112,6 +112,22 @@ export class Rectangle {
     return this.v2;
   }
 
+  get x1() {
+    return this.v1.x;
+  }
+
+  get x2() {
+    return this.x1 + this.w;
+  }
+
+  get y1() {
+    return this.v1.y;
+  }
+
+  get y2() {
+    return this.y1 + this.h;
+  }
+
   lockProportions(locked = true) {
     this.lockedProportions = locked;
   }
