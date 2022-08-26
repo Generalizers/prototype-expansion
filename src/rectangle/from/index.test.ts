@@ -9,3 +9,13 @@ test('from', () => {
     ]),
   );
 });
+
+test('from default', () => {
+  const rect = Rectangle.from();
+  expect(rect).toStrictEqual(
+    new Rectangle([
+      [0, 0],
+      [0, 0],
+    ]),
+  );
+});

@@ -11,12 +11,12 @@ export class Rectangle {
     this.v2 = Vector2.from(items[1]);
   }
 
-  static from(v1: Vector2, v2: Vector2): Rectangle;
-  static from(n: [number, number], m: [number, number]): Rectangle;
+  static from(v1?: Vector2, v2?: Vector2): Rectangle;
+  static from(n?: [number, number], m?: [number, number]): Rectangle;
   static from(n?: Vector2OrNumberArr, m?: Vector2OrNumberArr) {
     return new Rectangle([
-      (n as unknown as [number, number]) ?? [0, 0],
-      (m as unknown as [number, number]) ?? [0, 0],
+      n as unknown as [number, number],
+      m as unknown as [number, number],
     ]);
   }
 

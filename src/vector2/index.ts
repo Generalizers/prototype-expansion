@@ -5,8 +5,10 @@ export class Vector2 extends NumberArray {
     super(...items);
   }
 
-  static from(arrayLike: [number, number]) {
-    return new Vector2(...arrayLike);
+  static from(arrayLike: [number, number]): Vector2;
+  static from(arrayLike?: [number, number]): Vector2;
+  static from(arrayLike?: [number, number]) {
+    return new Vector2(...(arrayLike ?? [0, 0]));
   }
 
   static distance(v1: Vector2, v2: Vector2) {
