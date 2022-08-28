@@ -150,6 +150,7 @@ export class Rectangle {
 
   lockProportions(locked = true) {
     this.lockedProportions = locked;
+    return this;
   }
 
   clone() {
