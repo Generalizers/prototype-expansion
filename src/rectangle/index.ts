@@ -139,4 +139,25 @@ export class Rectangle {
   lockProportions(locked = true) {
     this.lockedProportions = locked;
   }
+
+  sum(n: [number, number, number, number] | [number, number] | number) {
+    if (Array.isArray(n)) {
+      if (n.length == 4) {
+        this.set([
+          this.x1 + n[0],
+          this.y1 + n[1],
+          this.x2 + n[2],
+          this.y2 + n[3],
+        ]);
+      } else if (n.length == 2) {
+        this.set([this.x1 + n[0], this.y1 + n[1], this.x2, this.y2]);
+      }
+    } else this.set([this.x1 + n, this.y1 + n, this.x2 + n, this.y2 + n]);
+    return this;
+  }
+
+  minus(n: [number, number, number, number] | [number, number] | number) {
+    if (Array.isArray(n)) return this.sum(n.map((n) => -n) as any);
+    else return this.sum(-n);
+  }
 }
