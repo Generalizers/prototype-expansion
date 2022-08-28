@@ -120,6 +120,10 @@ export class Rectangle {
     return this;
   }
 
+  get array() {
+    return [...this.v1, ...this.v2];
+  }
+
   get p1() {
     return [...this.v1] as [number, number];
   }
