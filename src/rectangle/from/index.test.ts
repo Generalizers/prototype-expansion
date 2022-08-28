@@ -19,3 +19,8 @@ test('from default', () => {
     ]),
   );
 });
+
+test('from default', () => {
+  const rect = Rectangle.from();
+  expect(Rectangle.from(rect)).toStrictEqual(rect);
+});

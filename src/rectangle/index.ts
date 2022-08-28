@@ -22,11 +22,19 @@ export class Rectangle {
     m?: [number, number],
     locked?: boolean,
   ): Rectangle;
+  static from(rectangle?: Rectangle, locked?: boolean): Rectangle;
   static from(
-    n?: Vector2OrNumberArr,
+    n?: Vector2OrNumberArr | Rectangle,
     m?: Vector2OrNumberArr | boolean,
     locked = false,
   ) {
+    if (n instanceof Rectangle) {
+      return Rectangle.from(
+        [...n.v1] as [number, number],
+        [...n.v2] as [number, number],
+        (m as boolean) ?? false,
+      );
+    }
     if (typeof m == 'boolean')
       return new Rectangle(
         [n as unknown as [number, number], n as unknown as [number, number]],
@@ -137,5 +145,9 @@ export class Rectangle {
 
   lockProportions(locked = true) {
     this.lockedProportions = locked;
+  }
+
+  clone() {
+    return Rectangle.from(this);
   }
 }
