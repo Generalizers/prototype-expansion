@@ -17,6 +17,7 @@ export class Rectangle {
 
   static from(v?: Vector2, locked?: boolean): Rectangle;
   static from(v1?: Vector2, v2?: Vector2, locked?: boolean): Rectangle;
+  static from(n?: [number, number], locked?: boolean): Rectangle;
   static from(
     n?: [number, number],
     m?: [number, number],
