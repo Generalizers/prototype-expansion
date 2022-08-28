@@ -121,7 +121,7 @@ export class Rectangle {
   }
 
   get array() {
-    return [...this.v1, ...this.v2];
+    return NumberArray.from([...this.v1, ...this.v2]);
   }
 
   get p1() {
