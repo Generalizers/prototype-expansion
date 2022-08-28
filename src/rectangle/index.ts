@@ -61,6 +61,22 @@ export class Rectangle {
     return Math.abs(this.v2.y - this.v1.y);
   }
 
+  set w(n: number) {
+    this.v2.set([this.v1.x + n, this.v2.y]);
+  }
+
+  set h(n: number) {
+    this.v2.set([this.v2.x, this.v1.y + n]);
+  }
+
+  get wh() {
+    return [this.w, this.h];
+  }
+
+  set wh(n: [number, number]) {
+    this.v2.set([this.v1.x + n[0], this.v1.y + n[1]]);
+  }
+
   get hypotenuse() {
     return this.v1.distance(this.v2);
   }
