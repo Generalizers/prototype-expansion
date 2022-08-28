@@ -32,7 +32,7 @@ export class Rectangle {
       return Rectangle.from(
         [...n.v1] as [number, number],
         [...n.v2] as [number, number],
-        (m as boolean) ?? false,
+        n.lockedProportions,
       );
     }
     if (typeof m == 'boolean')
