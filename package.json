@@ -1,8 +1,8 @@
 {
   "name": "@generalizers/prototype-expansion",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "",
-  "main": "./src/module.ts",
+  "main": "./lib/module.js",
   "module": "./lib/module.js",
   "types": "./lib/module.d.ts",
   "scripts": {
