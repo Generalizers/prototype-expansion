@@ -16,7 +16,7 @@ module.exports = {
     },
     filename: 'module.js',
     clean: true,
-    globalObject: 'this',
+    globalObject: 'globalThis',
   },
   module: {
     rules: [
