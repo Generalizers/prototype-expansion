@@ -7,3 +7,5 @@ declare global {
 }
 
 export * from './unique';
+export * from './remove';
+export * from './removeAll';
